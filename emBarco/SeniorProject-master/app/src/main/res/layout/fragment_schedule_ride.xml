@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- By Justin Rzezinski -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".ScheduleRideFragment">
+
+    <!-- fragments are placed in this container -->
+    <FrameLayout
+        android:id="@+id/ride_map_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50">
+
+        <!-- add the google map fragment to the activity layout -->
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map_schedule"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <!-- checkout info container -->
+    <RelativeLayout
+        android:id="@+id/payment_info_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50">
+
+        <TextView
+            android:id="@+id/time_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desired ride time"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"
+            android:textSize="20dp" />
+
+        <Spinner
+            android:id="@+id/time_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/time_prompt" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:text="hrs"
+            android:layout_toRightOf="@+id/time_spinner"
+            android:layout_alignTop="@+id/time_spinner"/>
+
+        <TextView
+            android:id="@+id/pickup_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pickup Time"
+            android:textSize="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_alignStart="@+id/time_prompt"
+            android:layout_below="@+id/time_prompt"/>
+
+        <EditText
+            android:id="@+id/pickup_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Choose Time"
+            android:textSize="20dp"
+            android:layout_toRightOf="@+id/pickup_time"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/time_spinner"
+            android:layout_alignStart="@+id/time_spinner"
+            android:focusable="false"
+            android:enabled="true"/>
+
+        <TextView
+            android:id="@+id/cost_estimate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cost (USD)"
+            android:textSize="20dp"
+            android:layout_marginTop="35dp"
+            android:layout_alignStart="@+id/pickup_time"
+            android:layout_below="@+id/pickup_time"/>
+
+        <TextView
+            android:id="@+id/val_estimate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="20dp"
+            android:layout_toRightOf="@+id/cost_estimate"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/pickup_val"
+            android:layout_alignStart="@+id/time_spinner"/>
+
+        <Button
+            android:id="@+id/schedule_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Schedule your ride"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/cost_estimate"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/pay_now_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pay now"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/cost_estimate"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"/>
+
+
+
+    </RelativeLayout>
+</LinearLayout>
